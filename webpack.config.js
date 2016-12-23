@@ -1,13 +1,13 @@
 var glob = require('glob');
 
 module.exports = {
-    entry: glob.sync('./src/main/js/*.js'),
+    entry: glob.sync('./react/*.js'),
     devtool: 'sourcemaps',
     cache: true,
     debug: true,
     output: {
        path: __dirname,
-       filename: './src/main/resources/static/js/built/bundle.js'
+       filename: './public/javascripts/built/bundle.js'
     },
     module: {
         loaders: [
