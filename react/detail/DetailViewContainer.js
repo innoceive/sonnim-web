@@ -5,7 +5,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ImageArea from './ImageArea';
-import {detailData} from './DetailData';
+import {tmpData} from './TempData';
+import * as BasicComp from './GuestHouseBasicComp';
+import {CreateMap} from './Map';
 
 class DetailViewContainer extends Component {
     constructor() {
@@ -17,8 +19,8 @@ class DetailViewContainer extends Component {
 
     componentWillMount () {
         console.log("in cwm");
-        // Optionally the request above could also be done as
-/*        axios.get('http://beta.api.sonnim.kr/guesthouse/detail/1')
+/*        // Optionally the request above could also be done as
+        axios.get('http://beta.api.sonnim.kr/guesthouse/detail/1')
             .then(response => {
                 this.setState({responseData: response.data.data});
                 console.log(response);
@@ -27,26 +29,35 @@ class DetailViewContainer extends Component {
             .catch(function (error) {
                 console.log(error);
             });*/
-        console.log(detailData);
-        this.setState({responseData: detailData.data});
-        console.log(this.state.responseData);
+        this.setState({responseData: tmpData.data});
+
     }
 
     render() {
         const responseData = this.state.responseData;
         return (
-            <div className="row">
-                <div className="col-md-8 col-md-offset-3">
-                    <div className="thumbnail">
-                        <ImageArea imageUrl={responseData.imageUrl}/>
+
+                <div className="col-md-12 col-md-offset-2">
+                        <div className="thumbnail">
+                            <ImageArea imageUrl={responseData.imageUrl}/>
                             <div className="caption">
-                                <h3>Thumbnail label</h3>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
+                                <BasicComp.Name value={responseData.name}/>
+                                <BasicComp.Address value={responseData.address}/>
+                                <BasicComp.CheckInTime value={{
+                                    start: responseData.checkinStart,
+                                    end: responseData.checkinEnd,
+                                    out: responseData.checkout
+                                }}/>
+                                <CreateMap value={
+                                    {
+                                        lat: responseData.latitude,
+                                        lng: responseData.longitude,
+                                        name: responseData.name
+                                    }
+                                }/>
                             </div>
-                    </div>
+                        </div>
                 </div>
-            </div>
         );
     }
 }

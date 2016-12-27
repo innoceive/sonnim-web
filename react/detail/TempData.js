@@ -1,4 +1,4 @@
-export var detailData = {
+export var tmpData = {
             "result": "success",
             "mid": "GET_GUESTHOUSE_DETAIL",
             "data": {
