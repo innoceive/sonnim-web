@@ -10,7 +10,7 @@ class PostList extends React.Component {
                          name={post.name}
                          description={post.description}
                          address={post.address}
-                         imageUrl={post.imageUrl} />
+                         imageUrl={post.imageUrl} /> 
         });
 
         return (
