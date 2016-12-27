@@ -21679,27 +21679,50 @@
 	    function PostListContainer() {
 	        _classCallCheck(this, PostListContainer);
 	
-	        var _this = _possibleConstructorReturn(this, (PostListContainer.__proto__ || Object.getPrototypeOf(PostListContainer)).call(this));
+	        var _this2 = _possibleConstructorReturn(this, (PostListContainer.__proto__ || Object.getPrototypeOf(PostListContainer)).call(this));
 	
-	        _this.state = {
+	        _this2.state = {
 	            postList: []
 	        };
-	        return _this;
+	        return _this2;
 	    }
 	
 	    _createClass(PostListContainer, [{
+	        key: 'appendPostList',
+	        value: function appendPostList(addedList) {
+	            this.setState({
+	                postList: this.state.postList.concat(addedList)
+	            });
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            var _this = this;
+	
 	            // Optionally the request above could also be done as
 	            _axios2.default.get('http://beta.api.sonnim.kr/guesthouse/search', {
 	                params: {
 	                    ID: 12345
 	                }
 	            }).then(function (response) {
-	                console.log(response);
+	                if (response.status == 200) {
+	                    var data = response.data;
+	
+	                    console.log(_this);
+	                    if (data.result == "success") {
+	                        _this.appendPostList(data.data);
+	                    }
+	                } else {
+	                    console.log(response.status);
+	                }
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            console.log('componentWillReceiveProps');
 	        }
 	    }, {
 	        key: 'render',

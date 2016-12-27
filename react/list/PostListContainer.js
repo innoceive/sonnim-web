@@ -11,19 +11,38 @@ class PostListContainer extends Component {
         }
     }
 
+    appendPostList(addedList){
+        this.setState({
+            postList: this.state.postList.concat(addedList)
+        });
+    }
+
     componentDidMount(){
+        var _this = this;
+
         // Optionally the request above could also be done as
         axios.get('http://beta.api.sonnim.kr/guesthouse/search', {
             params: {
                 ID: 12345
             }
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        }).then(function (response) {
+            if(response.status == 200) {
+                var data = response.data;
+
+                console.log(_this);
+                if(data.result == "success") {
+                    _this.appendPostList(data.data);
+                }
+            } else {
+                console.log(response.status);
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps');
     }
 
     render(){
