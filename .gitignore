@@ -40,7 +40,7 @@ Icon
 .externalToolBuilders/
 
 # Webpack builtin
-/public/javascripts/built/*
+public/javascripts/built
 
 # Node modules
 node_modules
