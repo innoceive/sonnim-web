@@ -13,8 +13,8 @@ class App extends React.Component {
                 <Navbar />
                 {/*<PostListContainer />*/}
                 <div className="container">
-                    {/*<Detail/>*/}
-                    <Sample/>
+                    <Detail/>
+                    {/*<Sample/>*/}
                 </div>
             </div>
         );

@@ -11,7 +11,7 @@ export class CreateMap extends Component{
 
     render(){
         return (
-            <div className="col-md-offset-3" id="map" style={{width: 'auto', height: '400px'}}></div>
+            <div className="col-md-8" id="map" style={{height: '400px'}}></div>
         );
     }
 
@@ -45,7 +45,7 @@ function initializeMapOption(props){
 
 function setInfoWindow(markerPos, props){
     //set text
-    var iwContent = '<div style="margin: auto"><p class="text-center">'+props.value.name+'</p></div>'
+    var iwContent = '<div><p class="text-center">'+props.value.name+'</p></div>'
     //set pos
     return new daum.maps.InfoWindow({
         position: markerPos,

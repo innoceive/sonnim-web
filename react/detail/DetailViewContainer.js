@@ -37,9 +37,10 @@ class DetailViewContainer extends Component {
         const responseData = this.state.responseData;
         return (
 
-                <div className="col-md-12 col-md-offset-2">
+                <div className="col-md-8 col-md-offset-2">
+                    <div className="row">
                         <div className="thumbnail">
-                            <ImageArea imageUrl={responseData.imageUrl}/>
+                            <ImageArea className="col-md-8" imageUrl={responseData.imageUrl}/>
                             <div className="caption">
                                 <BasicComp.Name value={responseData.name}/>
                                 <BasicComp.Address value={responseData.address}/>
@@ -48,7 +49,8 @@ class DetailViewContainer extends Component {
                                     end: responseData.checkinEnd,
                                     out: responseData.checkout
                                 }}/>
-                                <CreateMap value={
+                                <CreateMap className="col-md-8 col-md-offset-2"
+                                           value={
                                     {
                                         lat: responseData.latitude,
                                         lng: responseData.longitude,
@@ -57,6 +59,7 @@ class DetailViewContainer extends Component {
                                 }/>
                             </div>
                         </div>
+                    </div>
                 </div>
         );
     }

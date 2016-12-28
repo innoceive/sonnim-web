@@ -14,13 +14,8 @@ class ImageArea extends Component {
     }
 
     render(){
-        const imgStyle = {
-            height: '400px',
-            width: 'auto'
-        };
-
         return (
-            <img src={this.props.imageUrl} className="img-thumbnail" alt="" style={imgStyle}/>
+            <img src={this.props.imageUrl} alt=""/>
         );
     }
 

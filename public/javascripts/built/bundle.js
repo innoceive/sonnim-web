@@ -102,7 +102,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'container' },
-	                    _react2.default.createElement(_Sample.Sample, null)
+	                    _react2.default.createElement(_DetailViewContainer2.default, null)
 	                )
 	            );
 	        }
@@ -21727,26 +21727,31 @@
 	            var responseData = this.state.responseData;
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-12 col-md-offset-2' },
+	                { className: 'col-md-8 col-md-offset-2' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'thumbnail' },
-	                    _react2.default.createElement(_ImageArea2.default, { imageUrl: responseData.imageUrl }),
+	                    { className: 'row' },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'caption' },
-	                        _react2.default.createElement(BasicComp.Name, { value: responseData.name }),
-	                        _react2.default.createElement(BasicComp.Address, { value: responseData.address }),
-	                        _react2.default.createElement(BasicComp.CheckInTime, { value: {
-	                                start: responseData.checkinStart,
-	                                end: responseData.checkinEnd,
-	                                out: responseData.checkout
-	                            } }),
-	                        _react2.default.createElement(_Map.CreateMap, { value: {
-	                                lat: responseData.latitude,
-	                                lng: responseData.longitude,
-	                                name: responseData.name
-	                            } })
+	                        { className: 'thumbnail' },
+	                        _react2.default.createElement(_ImageArea2.default, { className: 'col-md-8', imageUrl: responseData.imageUrl }),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'caption' },
+	                            _react2.default.createElement(BasicComp.Name, { value: responseData.name }),
+	                            _react2.default.createElement(BasicComp.Address, { value: responseData.address }),
+	                            _react2.default.createElement(BasicComp.CheckInTime, { value: {
+	                                    start: responseData.checkinStart,
+	                                    end: responseData.checkinEnd,
+	                                    out: responseData.checkout
+	                                } }),
+	                            _react2.default.createElement(_Map.CreateMap, { className: 'col-md-8 col-md-offset-2',
+	                                value: {
+	                                    lat: responseData.latitude,
+	                                    lng: responseData.longitude,
+	                                    name: responseData.name
+	                                } })
+	                        )
 	                    )
 	                )
 	            );
@@ -23292,12 +23297,7 @@
 	    _createClass(ImageArea, [{
 	        key: 'render',
 	        value: function render() {
-	            var imgStyle = {
-	                height: '400px',
-	                width: 'auto'
-	            };
-	
-	            return _react2.default.createElement('img', { src: this.props.imageUrl, className: 'img-thumbnail', alt: '', style: imgStyle });
+	            return _react2.default.createElement('img', { src: this.props.imageUrl, alt: '' });
 	        }
 	    }]);
 	
@@ -23476,7 +23476,7 @@
 	    _createClass(CreateMap, [{
 	        key: "render",
 	        value: function render() {
-	            return _react2.default.createElement("div", { className: "col-md-offset-3", id: "map", style: { width: 'auto', height: '400px' } });
+	            return _react2.default.createElement("div", { className: "col-md-8", id: "map", style: { height: '400px' } });
 	        }
 	    }, {
 	        key: "componentDidMount",
@@ -23513,7 +23513,7 @@
 	
 	function setInfoWindow(markerPos, props) {
 	    //set text
-	    var iwContent = '<div style="margin: auto"><p class="text-center">' + props.value.name + '</p></div>';
+	    var iwContent = '<div><p class="text-center">' + props.value.name + '</p></div>';
 	    //set pos
 	    return new daum.maps.InfoWindow({
 	        position: markerPos,

@@ -10,3 +10,8 @@ div.post__image {
     width: 100px;
     height: 100px;
 }
+.thumbnail .caption:after {
+    content: "";
+    display: block;
+    clear: both;
+}
