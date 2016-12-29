@@ -13,34 +13,32 @@ class DetailViewContainer extends Component {
     constructor() {
         super();
         this.state = {
-            responseData: null
+            responseData: []
         };
     }
-
-    componentWillMount () {
-        console.log("in cwm");
-/*        // Optionally the request above could also be done as
+    componentDidMount () {
+        console.log("in did mount");
+        // Optionally the request above could also be done as
         axios.get('http://beta.api.sonnim.kr/guesthouse/detail/1')
             .then(response => {
+                //console.log(response);
                 this.setState({responseData: response.data.data});
-                console.log(response);
-                console.log(this.state.responseData);
             })
             .catch(function (error) {
                 console.log(error);
-            });*/
-        this.setState({responseData: tmpData.data});
-
+            });
+        // this.setState({responseData: tmpData.data});
     }
 
     render() {
         const responseData = this.state.responseData;
+        console.log("in render");
+        //console.log(responseData);
         return (
-
+            <div className="row">
                 <div className="col-md-8 col-md-offset-2">
-                    <div className="row">
                         <div className="thumbnail">
-                            <ImageArea className="col-md-8" imageUrl={responseData.imageUrl}/>
+                            <ImageArea imageUrl={responseData.imageUrl}/>
                             <div className="caption">
                                 <BasicComp.Name value={responseData.name}/>
                                 <BasicComp.Address value={responseData.address}/>
@@ -49,18 +47,16 @@ class DetailViewContainer extends Component {
                                     end: responseData.checkinEnd,
                                     out: responseData.checkout
                                 }}/>
-                                <CreateMap className="col-md-8 col-md-offset-2"
-                                           value={
-                                    {
-                                        lat: responseData.latitude,
-                                        lng: responseData.longitude,
-                                        name: responseData.name
-                                    }
-                                }/>
                             </div>
+                            <CreateMap
+                                value={{
+                                    lat: responseData.latitude,
+                                    lng: responseData.longitude,
+                                    name: responseData.name
+                                }}/>
                         </div>
-                    </div>
                 </div>
+            </div>
         );
     }
 }

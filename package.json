@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/webpack & node ./bin/www",
+    "start": "webpack & node ./bin/www",
     "webpack": "webpack"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "webpack": "^1.12.2",
     "axios": "^0.15.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {},
+  "description": "",
+  "main": "app.js"
 }

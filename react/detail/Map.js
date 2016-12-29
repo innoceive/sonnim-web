@@ -11,7 +11,7 @@ export class CreateMap extends Component{
 
     render(){
         return (
-            <div className="col-md-8" id="map" style={{height: '400px'}}></div>
+            <div id="map" style={{height: '400px'}}></div>
         );
     }
 

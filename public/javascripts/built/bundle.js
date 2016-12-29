@@ -21700,41 +21700,42 @@
 	        var _this = _possibleConstructorReturn(this, (DetailViewContainer.__proto__ || Object.getPrototypeOf(DetailViewContainer)).call(this));
 	
 	        _this.state = {
-	            responseData: null
+	            responseData: []
 	        };
 	        return _this;
 	    }
 	
 	    _createClass(DetailViewContainer, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            console.log("in cwm");
-	            /*        // Optionally the request above could also be done as
-	                    axios.get('http://beta.api.sonnim.kr/guesthouse/detail/1')
-	                        .then(response => {
-	                            this.setState({responseData: response.data.data});
-	                            console.log(response);
-	                            console.log(this.state.responseData);
-	                        })
-	                        .catch(function (error) {
-	                            console.log(error);
-	                        });*/
-	            this.setState({ responseData: _TempData.tmpData.data });
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+	
+	            console.log("in did mount");
+	            // Optionally the request above could also be done as
+	            _axios2.default.get('http://beta.api.sonnim.kr/guesthouse/detail/1').then(function (response) {
+	                //console.log(response);
+	                _this2.setState({ responseData: response.data.data });
+	            }).catch(function (error) {
+	                console.log(error);
+	            });
+	            // this.setState({responseData: tmpData.data});
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var responseData = this.state.responseData;
+	            console.log("in render");
+	            //console.log(responseData);
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-md-8 col-md-offset-2' },
+	                { className: 'row' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'row' },
+	                    { className: 'col-md-8 col-md-offset-2' },
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'thumbnail' },
-	                        _react2.default.createElement(_ImageArea2.default, { className: 'col-md-8', imageUrl: responseData.imageUrl }),
+	                        _react2.default.createElement(_ImageArea2.default, { imageUrl: responseData.imageUrl }),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'caption' },
@@ -21744,14 +21745,14 @@
 	                                    start: responseData.checkinStart,
 	                                    end: responseData.checkinEnd,
 	                                    out: responseData.checkout
-	                                } }),
-	                            _react2.default.createElement(_Map.CreateMap, { className: 'col-md-8 col-md-offset-2',
-	                                value: {
-	                                    lat: responseData.latitude,
-	                                    lng: responseData.longitude,
-	                                    name: responseData.name
 	                                } })
-	                        )
+	                        ),
+	                        _react2.default.createElement(_Map.CreateMap, {
+	                            value: {
+	                                lat: responseData.latitude,
+	                                lng: responseData.longitude,
+	                                name: responseData.name
+	                            } })
 	                    )
 	                )
 	            );
@@ -23286,12 +23287,7 @@
 	    function ImageArea() {
 	        _classCallCheck(this, ImageArea);
 	
-	        var _this = _possibleConstructorReturn(this, (ImageArea.__proto__ || Object.getPrototypeOf(ImageArea)).call(this));
-	
-	        _this.state = {
-	            imageUrl: null
-	        };
-	        return _this;
+	        return _possibleConstructorReturn(this, (ImageArea.__proto__ || Object.getPrototypeOf(ImageArea)).apply(this, arguments));
 	    }
 	
 	    _createClass(ImageArea, [{
@@ -23409,9 +23405,21 @@
 	}
 	
 	function CheckInTime(props) {
-	    var startTime = props.value.start.slice(0, 5);
-	    var endTime = props.value.end.slice(0, 5);
-	    var outTime = props.value.out.slice(0, 5);
+	    console.log(props);
+	    var times = {
+	        startTime: null,
+	        endTime: null,
+	        outTime: null
+	    };
+	
+	    if (props.start != "undefined") {
+	        console.log("not in there");
+	        times = {
+	            startTime: props.value.start.slice(1, 5),
+	            endTime: props.value.end.slice(1, 5),
+	            outTime: props.value.out.slice(1, 5)
+	        };
+	    }
 	
 	    return React.createElement(
 	        "div",
@@ -23420,24 +23428,28 @@
 	            "p",
 	            { className: "guestHouseCheckInTime" },
 	            "\uCCB4\uD06C\uC778 : ",
-	            startTime,
+	            times.startTime,
 	            " ~ ",
-	            endTime
+	            times.endTime
 	        ),
 	        React.createElement(
 	            "p",
 	            { className: "guestHouseCheckOutTime" },
 	            "\uCCB4\uD06C\uC544\uC6C3 : ",
-	            outTime
+	            times.outTime
 	        )
 	    );
+	}
+	
+	function timeStringRefine(time) {
+	    return time.slice(1, 5);
 	}
 
 /***/ },
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -23474,12 +23486,12 @@
 	    }
 	
 	    _createClass(CreateMap, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement("div", { className: "col-md-8", id: "map", style: { height: '400px' } });
+	            return _react2.default.createElement('div', { id: 'map', style: { height: '400px' } });
 	        }
 	    }, {
-	        key: "componentDidMount",
+	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var options = initializeMapOption(this.props);
 	            var container = document.getElementById('map');
