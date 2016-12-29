@@ -11,26 +11,28 @@ export function Address(props){
 }
 
 export function CheckInTime(props){
-    console.log(props);
-    let times = {
-        startTime: null,
-        endTime: null,
-        outTime: null,
-    }
-
-    if(props.start === "undefined"){
-        console.log("not in there");
+    let times = {};
+    if(props.value.start){
         times = {
-            startTime: props.value.start.slice(1,5),
-            endTime: props.value.end.slice(1,5),
-            outTime:  props.value.out.slice(1,5)
+            startTime: cutSecTime(props.value.start),
+            endTime: cutSecTime(props.value.end),
+            outTime: cutSecTime(props.value.out),
         }
     }
-
     return (
         <div>
             <p className="guestHouseCheckInTime">체크인 : {times.startTime} ~ {times.endTime}</p>
             <p className="guestHouseCheckOutTime">체크아웃 : {times.outTime}</p>
         </div>
+    );
+}
+
+function cutSecTime(originString){
+    return originString.slice(0,5);
+}
+
+export function ImageArea(props){
+    return (
+        <img src={props.imageUrl} alt=""/>
     );
 }

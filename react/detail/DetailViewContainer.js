@@ -1,11 +1,5 @@
-/**
- * Created by jys on 2016. 12. 23..
- */
-
 import React, {Component} from 'react';
 import axios from 'axios';
-import ImageArea from './ImageArea';
-import {tmpData} from './TempData';
 import * as BasicComp from './GuestHouseBasicComp';
 import {CreateMap} from './Map';
 
@@ -23,6 +17,7 @@ class DetailViewContainer extends Component {
             .then(response => {
                 //console.log(response);
                 this.setState({responseData: response.data.data});
+                console.log(this.state.responseData);
             })
             .catch(function (error) {
                 console.log(error);
@@ -38,7 +33,7 @@ class DetailViewContainer extends Component {
             <div className="row">
                 <div className="col-md-8 col-md-offset-2">
                         <div className="thumbnail">
-                            <ImageArea imageUrl={responseData.imageUrl}/>
+                            <BasicComp.ImageArea imageUrl={responseData.imageUrl}/>
                             <div className="caption">
                                 <BasicComp.Name value={responseData.name}/>
                                 <BasicComp.Address value={responseData.address}/>

@@ -24,7 +24,6 @@ $RECYCLE.BIN/
 .LSOverride
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -40,8 +39,11 @@ Icon
 # External tool builders
 .externalToolBuilders/
 
+# Webpack builtin
+public/javascripts/built
+
+# Node modules
 node_modules
-/src/main/resources/static/js/built/*
 
 ### log ###
 spy.log
