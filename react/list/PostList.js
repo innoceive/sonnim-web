@@ -6,16 +6,12 @@ class PostList extends React.Component {
         var posts = this.props.postList.map((post) => {
             console.log(post.name);
 
-            return <Post key={post.id}
-                         name={post.name}
-                         description={post.description}
-                         address={post.address}
-                         imageUrl={post.imageUrl} /> 
+            return <Post post={post} />
         });
 
         return (
-            <div>
-                <ul className="post-list">
+            <div className="post_list">
+                <ul>
                     {posts}
                 </ul>
             </div>
