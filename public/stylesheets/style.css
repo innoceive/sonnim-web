@@ -1,12 +1,46 @@
+ul {
+    padding: 0px;
+}
+
+div.post_list {
+    max-width: 800px;
+}
+
+
+div.label_list {
+    float: none;
+    height: 20px;
+}
+
 li.post {
-    border: 1px solid;
     width: 100%;
     height: 200px;
     margin-bottom: 8px;
     background-color: #EEEEEE;
+    border: 1px solid;
 }
 
-div.post__image {
-    width: 100px;
-    height: 100px;
+li.post div.post_image {
+    float: left;
+    margin-left : 20px;
+    margin-top : 20px;
+}
+li.post div.post_contents {
+    float: left;
+    margin-left : 20px;
+    margin-top : 20px;
+}
+
+li.post div.post_image img {
+    height: 160px;
+    width: 240px;
+}
+
+li.post div.map_image img {
+    height: 80px;
+    width: 120px;
+}
+
+li.label {
+    float: left;
 }
