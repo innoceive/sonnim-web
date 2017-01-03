@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
-import PostList from './PostList';
+import Post from './Post';
+import FilterContainer from './FilterContainer';
 import axios from 'axios';
 
-class PostListContainer extends Component {
+class PostContainer extends Component {
     constructor(){
         super();
         this.state={
@@ -29,7 +30,6 @@ class PostListContainer extends Component {
             if(response.status == 200) {
                 var data = response.data;
 
-                console.log(_this);
                 if(data.result == "success") {
                     _this.appendPostList(data.data);
                 }
@@ -46,10 +46,23 @@ class PostListContainer extends Component {
     }
 
     render(){
+        var posts = this.state.postList.map((post) => {
+            return <Post key={post.id}
+                         post={post} />
+        });
+
         return (
-            <PostList postList = { this.state.postList } />
+            <div>
+                <FilterContainer />
+                <div className="sn_postbox">
+                    <ul className="post_list">
+                        {posts}
+                    </ul>
+                </div>
+            </div>
+
         );
     }
 }
 
-export default PostListContainer;
+export default PostContainer;
