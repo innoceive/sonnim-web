@@ -5,8 +5,6 @@ import React from 'react';
 
 class Label extends React.Component {
     render() {
-        console.log(this.props.label);
-
         return (
             <li className="label" >
                 <div>

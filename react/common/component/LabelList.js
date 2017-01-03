@@ -7,7 +7,8 @@ import Label from './Label';
 class LabelList extends React.Component {
     render() {
         var labels = this.props.labels.map((label) => {
-            return <Label label={label} />
+            return <Label key={label.color}
+                          label={label} />
         });
 
         return (
