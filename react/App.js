@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import Navbar from './navigation/Navbar';
-import PostListContainer from './list/PostListContainer';
+import PostContainer from './main/PostContainer';
 
 class App extends React.Component {
     render() {
         return (
             <div>
                 <Navbar />
-                <PostListContainer />
+                <PostContainer />
             </div>
         );
     }

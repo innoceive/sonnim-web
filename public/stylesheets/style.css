@@ -1,4 +1,28 @@
+div.sn_postbox, div.sn_filterbox {
+    float: left;
+    margin-left: 20px;
+}
+
+/**********************
+******     필터
+************************/
+
+div.sn_filterbox {
+    width: 200px;
+    background-color: #EEEEEE;
+    border: 1px solid;
+}
+
+div.sn_filterbox .sn_filter {
+    margin: 5px;
+}
+
+div.sn_filterbox .sn_conditions {
+    margin: 5px;
+}
+
 ul {
+    list-style-type: none;
     padding: 0px;
 }
 
