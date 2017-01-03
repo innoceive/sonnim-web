@@ -36,6 +36,25 @@ class FilterContainer extends React.Component {
                     value: "협재5",
                     code: "A5"
                 }]
+            },{
+                title: "그리고",
+                code: "B2",
+                conditionList: [{
+                    value: "안녕",
+                    code: "A1"
+                },{
+                    value: "반가워",
+                    code: "A2"
+                },{
+                    value: "잘",
+                    code: "A3"
+                },{
+                    value: "부탁한다",
+                    code: "A4"
+                },{
+                    value: "하이",
+                    code: "A5"
+                }]
             }]
         });
     }
@@ -48,7 +67,7 @@ class FilterContainer extends React.Component {
 
         return (
             <div className="sn_filter">
-                <ul className="sn_filter" >
+                <ul>
                     {filters}
                 </ul>
             </div>

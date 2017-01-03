@@ -6,9 +6,9 @@ import React from 'react';
 class Condition extends React.Component {
     render() {
         return (
-            <li>
-                <input  type="checkbox" name="chk_info"/>{this.props.condition.value}
-            </li>
+            <a href="#" className="list-group-item">
+                {this.props.condition.value}
+            </a>
         )
     }
 }
@@ -23,9 +23,9 @@ class Filter extends React.Component {
         return (
             <li>
                 <strong>{this.props.filter.title}</strong>
-                <ul>
+                <div className="list-group">
                     {conditions}
-                </ul>
+                </div>
             </li>
         )
     }
