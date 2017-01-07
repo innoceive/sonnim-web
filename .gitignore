@@ -47,3 +47,4 @@ node_modules
 
 ### log ###
 spy.log
+npm-debug.log

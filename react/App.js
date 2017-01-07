@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Navbar from './navigation/Navbar';
 import PostContainer from './main/PostContainer';
+import Dimmer from './common/Dimmer';
 
 class App extends React.Component {
     render() {
@@ -9,6 +10,7 @@ class App extends React.Component {
             <div>
                 <Navbar />
                 <PostContainer />
+                <Dimmer />
             </div>
         );
     }
