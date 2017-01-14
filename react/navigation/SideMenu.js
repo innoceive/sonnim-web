@@ -28,7 +28,7 @@ class SideMenu extends React.Component {
                 },
                 {
                     name: "*상세",
-                    path: "/detail",
+                    path: "/detail/1",
                 },
             ]
         }
