@@ -6,6 +6,7 @@ import SideMenu from './navigation/SideMenu';
 import PostContainer from './main/PostContainer';
 import DetailViewContainer from './detail/DetailViewContainer';
 import SearchContainer from './home/SearchContainer';
+import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 
 
 class App extends React.Component {
@@ -13,29 +14,12 @@ class App extends React.Component {
         super(...arguments)
         this.showSideMenu = this.showSideMenu.bind(this)
         this.hideSideMenu = this.hideSideMenu.bind(this)
-        this.state = {
-            route: this.getHashCode()
-        };
-    }
-
-    componentDidMount() {
-        window.addEventListener('hashchange', () => {
-            this.hideSideMenu()
-            this.setState({
-                route: this.getHashCode()
-            });
-        });
-    }
-
-    getHashCode() {
-        return window.location.hash.substr(1);
     }
 
     showSideMenu() {
         this.refs.dimmer.showDimmer();
         this.refs.sideMenu.showSideMenu();
         this.freezeScroll();
-
     }
 
     hideSideMenu() {
@@ -59,20 +43,12 @@ class App extends React.Component {
     }
 
     render() {
-        let Content;
-
-        switch(this.state.route) {
-            case 'list': Content = PostContainer; break;
-            case 'detail': Content = DetailViewContainer; break;
-            default: Content = SearchContainer;
-        }
-
         return (
             <div>
                 <Navbar ref="navBar" showSideMenu={this.showSideMenu} />
                 <SideMenu ref="sideMenu" hideSideMenu={this.hideSideMenu} />
                 <div ref="container" className="container">
-                    <Content />
+                    {this.props.children}
                 </div>
                 <Dimmer ref="dimmer" />
             </div>
@@ -80,4 +56,14 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render((
+    <Router history={browserHistory}>
+        <Route path="/" component={App}>
+            <IndexRoute component={SearchContainer} />
+            <Route path="about" component={SearchContainer} />
+            <Route path="setting" component={SearchContainer} />
+            <Route path="list" component={PostContainer} />
+            <Route path="detail" component={DetailViewContainer} />
+        </Route>
+    </Router>
+), document.getElementById('app'));
