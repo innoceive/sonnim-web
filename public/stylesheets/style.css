@@ -8,7 +8,10 @@ div.sn_postbox, div.sn_filterbox {
     float: left;
     margin-left: 20px;
 }
-.dimmer {
+.container {
+    padding-top: 70px;
+}
+#dimmer {
     display: none;
     background: #000000;
     position: fixed;
@@ -16,10 +19,14 @@ div.sn_postbox, div.sn_filterbox {
     height: 100%;
     top: 0;
     opacity:0.35;
-    z-index: 1000;
+    z-index: 2000;
+}
+#dimmer.active {
+    display: block;
 }
 .navbar {
     border-bottom: 1px solid #f0f0f0;
+    background: #ffffff;
 }
 #nav-icon {
     background: url(/images/navlogo.png) no-repeat center;
@@ -32,8 +39,11 @@ div.sn_postbox, div.sn_filterbox {
     margin-left: -21px;
     left: 50%;
 }
-#nav-menu {border: none;
-    background: none;
+#nav-menu {
+    border: none;
+    background-image: url('/images/ic_menu.png');
+    background-size: 50px;
+    background-position: center;
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -47,12 +57,12 @@ div.sn_postbox, div.sn_filterbox {
     cursor: pointer;
 }
 #sidemenu-close {
-    background: url('/images/closeico.png') no-repeat center;
+    background: url('/images/ic_close.png') no-repeat center;
     -webkit-background-size:18px;
     background-size:18px;
     position: absolute;
-    right:8px;
-    top:8px;
+    right:16px;
+    top:16px;
     width: 18px;
     height: 18px;
 }
@@ -60,7 +70,7 @@ div.sn_postbox, div.sn_filterbox {
     cursor: pointer;
 }
 #sidemenu {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     background: #ffffff;
@@ -68,7 +78,8 @@ div.sn_postbox, div.sn_filterbox {
     width: 240px;
     border-left: 1px solid #f0f0f0;
     background-color: white;
-    z-index: 1001;
+    z-index: 2001;
+    margin:0;
 }
 #sidemenu-head {
     background: #00e7fc; /* Old browsers */
@@ -80,16 +91,19 @@ div.sn_postbox, div.sn_filterbox {
 }
 
 .sidemenu-item {
-    height: 30px;
     line-height: 30px;
     font-size: 16px;
     border-bottom: 1px solid #f0f0f0;
-    padding: 8px 21px;
     box-sizing: content-box;
 }
 .sidemenu-item > a {
+    display: block;
+    padding: 8px 24px;
     text-decoration: none;
     color: #606060;
+}
+.sidemenu-item > a:hover {
+    background: #f4f4f4;
 }
 /**********************
 ******     필터
@@ -142,7 +156,10 @@ li.post div.post_contents {
     margin-left : 20px;
     margin-top : 20px;
 }
-
+div.post__image {
+    width: 100px;
+    height: 100px;
+}
 li.post div.post_image img {
     height: 160px;
     width: 240px;

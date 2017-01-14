@@ -35,6 +35,7 @@
     "webpack": "^1.12.2",
     "axios": "^0.15.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {},
+  "description": "",
+  "main": "app.js"
 }

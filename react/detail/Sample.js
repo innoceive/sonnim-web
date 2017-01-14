@@ -1,11 +1,10 @@
 /**
  * Created by jys on 2016. 12. 27..
  */
-export function Sample(){
+export function Sample(props){
     return(
         <div className="row">
-            <div className="col-md-4">.col-md-4</div>
-            <div className="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+            <div className={props.className}></div>
         </div>
     );
 }

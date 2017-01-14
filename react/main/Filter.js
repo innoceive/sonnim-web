@@ -6,9 +6,9 @@ import React from 'react';
 class Condition extends React.Component {
     render() {
         return (
-            <li href="#">
+            <li key={this.props.code} href="#">
                 <a href="javascript:;">
-                    { " " + this.props.condition.value}
+                    { " " + this.props.value }
                 </a>
             </li>
         )
@@ -19,7 +19,7 @@ class Filter extends React.Component {
 
     render(){
         var conditions = this.props.filter.conditionList.map((condition) => {
-            return <Condition condition={condition} />
+            return <Condition key={condition.code} value={condition.value} />
         });
 
         return (
