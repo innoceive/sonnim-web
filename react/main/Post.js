@@ -1,5 +1,6 @@
 import React from 'react';
 import LabelList from './../common/component/LabelList.js';
+import {Link} from 'react-router';
 
 class Post extends React.Component {
     render() {
@@ -8,9 +9,9 @@ class Post extends React.Component {
         return (
             <li className="post" >
                 <div className="post_image pull-left">
-                    <a href="http://www.naver.com" className="post__link">
+                    <Link to={'/detail/'+this.props.post.id} className="post__link">
                         <img src={this.props.post.imageUrl} alt="test"/>
-                    </a>
+                    </Link>
                 </div>
                 <div className="post_contents">
                     <div className="post_title">{this.props.post.name}</div>
