@@ -4,10 +4,12 @@ import {CreateMap} from './Map';
 import {tmpData} from './TempData';
 import {RoomListCard} from './DetailRoomListCard';
 
+
 class DetailViewContainer extends Component {
     constructor() {
-        super();
+        super(...arguments);
         this.state = {
+            id: this.props.params.id,
             responseData: tmpData.data
         };
     }
@@ -15,7 +17,7 @@ class DetailViewContainer extends Component {
     componentDidMount() {
         console.log("in did mount");
         // Optionally the request above could also be done as
-/*        axios.get('http://beta.api.sonnim.kr/guesthouse/detail/1')
+        axios.get('http://beta.api.sonnim.kr/guesthouse/detail/'+this.state.id)
             .then(response => {
                 //console.log(response);
                 this.setState({responseData: response.data.data});
@@ -23,7 +25,7 @@ class DetailViewContainer extends Component {
             })
             .catch(function (error) {
                 console.log(error);
-            });*/
+            });
         //this.setState({responseData: tmpData.data});
     }
 

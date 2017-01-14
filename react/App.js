@@ -63,7 +63,7 @@ ReactDOM.render((
             <Route path="about" component={SearchContainer} />
             <Route path="setting" component={SearchContainer} />
             <Route path="list" component={PostContainer} />
-            <Route path="detail" component={DetailViewContainer} />
+            <Route path="detail/:id" component={DetailViewContainer} />
         </Route>
     </Router>
 ), document.getElementById('app'));
