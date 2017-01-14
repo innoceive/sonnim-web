@@ -11,11 +11,11 @@ export class CreateMap extends Component{
 
     render(){
         return (
-            <div className="col-md-offset-3" id="map" style={{width: 'auto', height: '400px'}}></div>
+            <div id="map" style={{height: '400px'}}></div>
         );
     }
 
-    componentDidMount(){
+    componentDidUpdate(){
         const options = initializeMapOption(this.props);
         const container = document.getElementById('map');
         const map = new daum.maps.Map(container, options);
@@ -35,7 +35,7 @@ export class CreateMap extends Component{
 function initializeMapOption(props){
     const lat = props.value.lat;
     const lng = props.value.lng;
-    var options = {
+    const options = {
         center: new daum.maps.LatLng(lat, lng),
         level: 3
     }
@@ -45,12 +45,11 @@ function initializeMapOption(props){
 
 function setInfoWindow(markerPos, props){
     //set text
-    var iwContent = '<div style="margin: auto"><p class="text-center">'+props.value.name+'</p></div>'
+    var iwContent = '<div><p class="text-center">'+props.value.name+'</p></div>'
     //set pos
     return new daum.maps.InfoWindow({
         position: markerPos,
         content: iwContent
-
     });
 }
 
