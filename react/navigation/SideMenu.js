@@ -2,6 +2,7 @@
  * Created by jeonghoon on 2017. 1. 7..
  */
 import React from 'react';
+import { Router, Route, Link } from 'react-router'
 
 class SideMenu extends React.Component {
     constructor() {
@@ -11,23 +12,23 @@ class SideMenu extends React.Component {
             menus: [
                 {
                     name: "홈",
-                    hash: "",
+                    path: "/",
                 },
                 {
                     name: "서비스소개",
-                    hash: "#about",
+                    path: "/about",
                 },
                 {
                     name: "설정",
-                    hash: "#setting",
+                    path: "/setting",
                 },
                 {
                     name: "*리스트",
-                    hash: "#list",
+                    path: "/list",
                 },
                 {
                     name: "*상세",
-                    hash: "#detail",
+                    path: "/detail",
                 },
             ]
         }
@@ -47,11 +48,9 @@ class SideMenu extends React.Component {
         this.setState({active: false});
     }
 
-
-
     render() {
         let menus = this.state.menus.map((menu) => {
-            return <li key={menu.hash} className="sidemenu-item"><a href={menu.hash}>{menu.name}</a></li>
+            return <li key={menu.path} className="sidemenu-item" onClick={this.props.hideSideMenu}><Link to={menu.path}>{menu.name}</Link></li>
         });
 
         let style = {display: this.state.active ? 'block' : 'none'};
@@ -66,4 +65,5 @@ class SideMenu extends React.Component {
         )
     }
 }
+
 export default SideMenu;
