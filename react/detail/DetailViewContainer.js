@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {CreateNaverMap} from './Map';
+import {CreateNaverMap, CreateDaumMap} from './Map';
 import {tmpData} from './TempData';
 import {RoomListCard} from './DetailRoomListCard';
 
@@ -30,7 +30,6 @@ class DetailViewContainer extends Component {
     }
 
     componentDidMount() {
-        console.log("in did mount");
         // Optionally the request above could also be done as
         axios.get('http://beta.api.sonnim.kr/guesthouse/detail/'+this.state.id)
             .then(function(response){
@@ -68,10 +67,8 @@ class DetailViewContainer extends Component {
     CheckInTime(timeObject) {
         const time = timeObject;
         if(typeof time.start == 'undefined'){
-            console.log("skip")
             return;
         }
-        console.log("nonskip");
         console.log(timeObject);
 
         var timeSlice = function(object){
@@ -82,7 +79,6 @@ class DetailViewContainer extends Component {
         }
 
         const times = timeSlice(timeObject);
-        console.log(times);
         return (
             <div>
                 <p className="guestHouseCheckInTime">체크인 : {times.startTime}
@@ -94,7 +90,6 @@ class DetailViewContainer extends Component {
 
     render() {
       const ghData = this.state.guestHouse;
-      console.log(ghData);
       return (
           <div className="row">
               <div className="col-md-8 col-md-offset-0">
@@ -109,7 +104,7 @@ class DetailViewContainer extends Component {
                               out: ghData.checkout
                           })}
                       </div>
-                      <CreateNaverMap gps={ghData.ghGps} name={ghData.ghName}/>
+                      <CreateDaumMap gps={ghData.ghGps} name={ghData.ghName}/>
                   </div>
               </div>
               <div className="col-md-4">

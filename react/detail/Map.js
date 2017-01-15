@@ -16,7 +16,8 @@ export class CreateDaumMap extends Component{
     }
 
     componentDidUpdate(){
-        const options = initializeMapOption(this.props);
+        const options = initializeMapOption(this.props.gps);
+        console.log(options);
         const container = document.getElementById('map');
         const map = new daum.maps.Map(container, options);
 
@@ -32,11 +33,9 @@ export class CreateDaumMap extends Component{
     }
 }
 
-function initializeMapOption(props){
-    const lat = props.value.lat;
-    const lng = props.value.lng;
+function initializeMapOption(gps){
     const options = {
-        center: new daum.maps.LatLng(lat, lng),
+        center: new daum.maps.LatLng(33.3966899, 126.2433636),
         level: 3
     }
 
@@ -45,7 +44,7 @@ function initializeMapOption(props){
 
 function setInfoWindow(markerPos, props){
     //set text
-    var iwContent = '<div><p class="text-center">'+props.value.name+'</p></div>'
+    var iwContent = '<div><p class="text-center">'+props.name+'</p></div>'
     //set pos
     return new daum.maps.InfoWindow({
         position: markerPos,
