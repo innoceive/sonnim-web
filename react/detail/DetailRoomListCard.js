@@ -2,10 +2,11 @@
  * Created by Administrator on 2017-01-12.
  */
 import {Component} from 'react';
+import {ModalPop} from './DetailRoomModalPop';
 
 export class RoomListCard extends Component{
     render(){
-        const room = this.props.children;
+        const room = this.props.value;
         return(
             <div className="thumbnail">
                 <div className="caption">

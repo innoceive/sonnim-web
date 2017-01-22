@@ -3,7 +3,7 @@ import axios from 'axios';
 import {CreateNaverMap, CreateDaumMap} from './Map';
 import {tmpData} from './TempData';
 import {RoomListCard} from './DetailRoomListCard';
-
+import {ModalPop} from './DetailRoomModalPop';
 
 class DetailViewContainer extends Component {
     constructor() {
@@ -25,7 +25,8 @@ class DetailViewContainer extends Component {
                 lat: 126.31
               }
             },
-            socialNetworks : []
+            socialNetworks : [],
+            currRoom : []
         };
     }
 
@@ -88,10 +89,14 @@ class DetailViewContainer extends Component {
         );
     }
 
+    handleClick(room){
+      this.setState({currRoom : room});
+    }
+
     render() {
       const ghData = this.state.guestHouse;
       return (
-          <div className="row">
+          <div className="row wrap">
               <div className="col-md-8 col-md-offset-0">
                   <div className="thumbnail">
                       <img src={ghData.imageUrl} alt=""/>
@@ -104,16 +109,21 @@ class DetailViewContainer extends Component {
                               out: ghData.checkout
                           })}
                       </div>
-                      <CreateDaumMap gps={ghData.ghGps} name={ghData.ghName}/>
+                      <CreateNaverMap gps={ghData.ghGps} name={ghData.ghName}/>
                   </div>
               </div>
               <div className="col-md-4">
-                  {ghData.rooms.map(function(room){
-                      return (<RoomListCard key={room.id}>
-                              {room}
-                          </RoomListCard>);
-                  })}
+                <ul>
+                  {ghData.rooms.map((room) => (
+                    <li key={room.id}>
+                      <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
+                        <RoomListCard value={room} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
+              <ModalPop value={this.state.currRoom}/>
           </div>
       );
     }

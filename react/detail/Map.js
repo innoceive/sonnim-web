@@ -35,7 +35,7 @@ export class CreateDaumMap extends Component{
 
 function initializeMapOption(gps){
     const options = {
-        center: new daum.maps.LatLng(33.3966899, 126.2433636),
+        center: new daum.maps.LatLng(gps.lat, gps.long),
         level: 3
     }
 
