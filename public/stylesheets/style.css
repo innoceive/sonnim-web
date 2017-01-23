@@ -173,3 +173,39 @@ li.post div.map_image img {
 li.label {
     float: left;
 }
+.input-wrapper {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #888888;
+}
+.input-wrapper:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+.input-wrapper ul {
+    float: left;
+    list-style: none;
+}
+.input-wrapper ul li.tag {
+    background-color: #f88;
+    border-radius: 4px;
+    color:#fff;
+    margin-right: 4px;
+    float:left;
+}
+.input-wrapper input {
+    float: left;
+    border: none;
+}
+.input-wrapper button {
+    float: right;
+}
+.check-box div {
+    display: inline;
+    padding-left: 24px;
+}
+.check-box div.active {
+    background: #11ceff;
+
+}
