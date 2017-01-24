@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack & node ./bin/www",
+    "start": "webpack --progress --colors --watch & node ./bin/www",
     "webpack" : "webpack"
   },
   "repository": {
