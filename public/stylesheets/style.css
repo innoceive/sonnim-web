@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* global */
 body {
+    background-color: #F4F4F4;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
 }
@@ -105,23 +107,45 @@ div.sn_postbox, div.sn_filterbox {
 .sidemenu-item > a:hover {
     background: #f4f4f4;
 }
-/**********************
-******     필터
-************************/
-
-div.sn_filterbox {
-    width: 200px;
-    background-color: #EEEEEE;
-    border: 1px solid;
+/* filter */
+div.sn-filter-box {
+    float: left;
+    width: 265px;
+    background-color: #FFFFFF;
 }
 
-div.sn_filterbox .sn_filter {
+div.sn-filter-box .sn-filter-item {
     margin: 5px;
 }
 
-div.sn_filterbox .sn_conditions {
+div.sn-filter-box .sn-filter-conditions {
     margin: 5px;
 }
+
+/* condition */
+div.sn-condition-item {
+    width: 100%;
+    height: 29px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+div.sn-condition-item input.sn-condition-checkbox {
+
+    float: left;
+}
+
+div.sn-condition-item span.sn-condition-title {
+    float: left;
+    width: 100%;
+    margin-left: 21.6px;
+    margin-right: 30px;
+}
+
+div.sn-condition-item span.sn-condition-count {
+    float: right;
+}
+
 
 ul {
     list-style-type: none;

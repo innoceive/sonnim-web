@@ -6,67 +6,69 @@
  */
 import React from 'react';
 import Filter from './Filter';
+import axios from 'axios'
 
 class FilterContainer extends React.Component {
     constructor(){
         super();
         this.state={
-            filterList: []
+            filters: []
         }
     }
 
-    componentDidMount(){
+    setFilterList() {
         this.setState({
-            filterList: [{
-                title: "지역",
-                code: "B1",
-                conditionList: [{
-                    value: "협재",
-                    code: "A1"
+            filters: [{
+                id: 0,
+                title: "가격(1박당)",
+                conditions: [{
+                    id: 1,
+                    title: "₩ 0 - ₩ 59,999"
                 },{
-                    value: "협재2",
-                    code: "A2"
+                    id: 2,
+                    title: "₩ 60,000 - ₩ 119,999"
                 },{
-                    value: "협재3",
-                    code: "A3"
+                    id: 3,
+                    title: "₩ 120,000 - ₩ 179,999"
                 },{
-                    value: "협재4",
-                    code: "A4"
+                    id: 4,
+                    title: "₩ 180,000 - ₩ 239,999"
                 },{
-                    value: "협재5",
-                    code: "A5"
-                }]
-            },{
-                title: "그리고",
-                code: "B2",
-                conditionList: [{
-                    value: "안녕",
-                    code: "A1"
-                },{
-                    value: "반가워",
-                    code: "A2"
-                },{
-                    value: "잘",
-                    code: "A3"
-                },{
-                    value: "부탁한다",
-                    code: "A4"
-                },{
-                    value: "하이",
-                    code: "A5"
+                    id: 5,
+                    title: "₩ 240,000 부터"
                 }]
             }]
         });
     }
 
+    componentDidMount(){
+      this.setFilterList();
+      // var _this = this;
+      //
+      // axios.get('http://beta.api.sonnim.kr/filter/list').then(function (response) {
+      //     if(response.status == 200) {
+      //         var data = response.data;
+      //
+      //         if(data.result == "success") {
+      //             _this.setFilterList(data.data);
+      //         }
+      //     } else {
+      //         console.log(response.status);
+      //     }
+      // }).catch(function (error) {
+      //     console.log(error);
+      // });
+    }
+
     render() {
-        var filters = this.state.filterList.map((filter) => {
-            return <Filter key={filter.code}
+        var filters = this.state.filters.map((filter) => {
+            return <Filter key={filter.id}
                            filter={filter} />
         });
 
         return (
-            <div className="sn_filterbox">
+            <div className="sn-filter-box">
+                <h2 className="sn-filter-header">검색 필터</h2>
                 <ul>
                     {filters}
                 </ul>
