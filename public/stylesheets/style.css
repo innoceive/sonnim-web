@@ -122,7 +122,32 @@ div.sn-filter-box .sn-filter-conditions {
     margin: 5px;
 }
 
+button.sn-filter-accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+button.sn-filter-accordion.active, button.sn-filter-accordion:hover {
+    background-color: #ddd;
+}
+
+div.sn-filter-content {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
 /* condition */
+div.sn-condition-item label {
+    display: block;
+}
+
 div.sn-condition-item {
     width: 100%;
     height: 29px;
@@ -137,16 +162,19 @@ div.sn-condition-item input.sn-condition-checkbox {
 
 div.sn-condition-item span.sn-condition-title {
     float: left;
-    width: 100%;
-    margin-left: 21.6px;
-    margin-right: 30px;
+    margin-left: 7px;
 }
 
 div.sn-condition-item span.sn-condition-count {
     float: right;
 }
 
+span.sn-expandable {
+    float: right;
+}
 
+
+/* list */
 ul {
     list-style-type: none;
     padding: 0px;
