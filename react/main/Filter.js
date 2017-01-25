@@ -8,9 +8,9 @@ class Filter extends React.Component {
         var button = event.target;
 
         button.classList.toggle("active");
+        console.log(button.classList);
 
         var content = button.nextElementSibling;
-        console.log(content)
         if (content.style.display === "block") {
             content.style.display = "none";
         } else {
@@ -40,10 +40,7 @@ class Filter extends React.Component {
         return (
             <li className="sn-filter-item">
                 <button className="sn-filter-accordion" onClick={this.onClickAccordionButton.bind(this)}>
-                    <h3 className="sn-filter-header">
-                        {this.props.filter.title}
-                    </h3>
-                    <span className="sn-expandable">+</span>
+                    <b>{this.props.filter.title}</b>
                 </button>
                 <div className="sn-filter-content">
                     <fieldset>
