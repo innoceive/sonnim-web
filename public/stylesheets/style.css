@@ -148,8 +148,8 @@ button.sn-filter-accordion:after {
     margin-left: 5px;
 }
 
-button.accordion.active:after {
-    content: '\2796';
+button.sn-filter-accordion.active:after {
+    content: '\2212';
 }
 
 h3.sn-filter-header {
