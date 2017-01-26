@@ -4,8 +4,6 @@ import {Link} from 'react-router';
 
 class Post extends React.Component {
     render() {
-        console.log(this.props);
-
         return (
             <li className="post" >
                 <div className="post_image pull-left">
