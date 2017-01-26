@@ -6,12 +6,8 @@ body {
     font-weight: 300;
 }
 
-div.sn_postbox, div.sn_filterbox {
-    float: left;
-    margin-left: 20px;
-}
 .container {
-    padding-top: 70px;
+    padding-top: 80px;
 }
 #dimmer {
     display: none;
@@ -107,7 +103,81 @@ div.sn_postbox, div.sn_filterbox {
 .sidemenu-item > a:hover {
     background: #f4f4f4;
 }
+/* post */
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.sn-post-box {
+    float: left;
+    display: block;
+    margin-left: 20px;
+    width: 855px;
+}
+
+div.sn-post-list {
+    width: 100%;
+}
+
+li.sn-post {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+div.label_list {
+    float: none;
+    height: 20px;
+}
+
+li.sn-post div.sn-post-image {
+    float: left;
+    height: 100%;
+    width: 240px;
+}
+
+li.sn-post div.sn-post-image img {
+    height: 100%;
+    width: 100%;
+}
+
+li.sn-post div.sn-post-content {
+    float: left;
+    padding: 0px 10px;
+}
+
+li.sn-post a.sn-post-name {
+    display: inline;
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 1.25em;
+
+}
+
+li.sn-post .sn-post-address {
+    color: #4e4e4e;
+    padding: 5px 0px;
+    vertical-align: baseline;
+    display: block;
+    font-size: 1em;
+}
+
+li.sn-post div.sn-post-map img {
+    height: 80px;
+    width: 120px;
+}
+
+li.label {
+    float: left;
+}
+
 /* filter */
+
 div.sn-filter-box {
     float: left;
     border-radius: 2px;
@@ -132,7 +202,7 @@ div.sn-filter-box .sn-filter-conditions {
 }
 
 button.sn-filter-accordion {
-    background-color: #DDD;
+    background-color: #EEE;
     color: #444;
     cursor: pointer;
     width: 100%;
@@ -200,62 +270,4 @@ div.sn-condition-item span.sn-condition-title {
 
 div.sn-condition-item span.sn-condition-count {
     float: right;
-}
-
-span.sn-expandable {
-    float: right;
-}
-
-
-/* list */
-ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-}
-
-div.post_list {
-    max-width: 800px;
-}
-
-
-div.label_list {
-    float: none;
-    height: 20px;
-}
-
-li.post {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 8px;
-    background-color: #EEEEEE;
-    border: 1px solid;
-}
-
-li.post div.post_image {
-    float: left;
-    margin-left : 20px;
-    margin-top : 20px;
-}
-li.post div.post_contents {
-    float: left;
-    margin-left : 20px;
-    margin-top : 20px;
-}
-div.post__image {
-    width: 100px;
-    height: 100px;
-}
-li.post div.post_image img {
-    height: 160px;
-    width: 240px;
-}
-
-li.post div.map_image img {
-    height: 80px;
-    width: 120px;
-}
-
-li.label {
-    float: left;
 }

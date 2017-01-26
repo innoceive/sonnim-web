@@ -54,8 +54,8 @@ class PostContainer extends Component {
         return (
             <div>
                 <FilterContainer />
-                <div className="sn_postbox">
-                    <ul className="post_list">
+                <div className="sn-post-box">
+                    <ul className="sn-post-list">
                         {posts}
                     </ul>
                 </div>

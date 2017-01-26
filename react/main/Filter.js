@@ -25,7 +25,7 @@ class Filter extends React.Component {
         var conditions = this.props.filter.conditions.map((condition, index) => {
             return (
                 <div className="sn-condition-item">
-                    <label for={"sn-condition-checkbox-" + index}>
+                    <label htmlFor={"sn-condition-checkbox-" + index}>
                         <input className={"sn-condition-checkbox-" + index} type="checkbox" value="" onClick="" ></input>
                         <span className="sn-condition-title">{condition.title}</span>
                         <span className="sn-condition-count">{index*10}</span>
