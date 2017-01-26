@@ -144,7 +144,7 @@ class FilterContainer extends React.Component {
 
         return (
             <div className="sn-filter-box">
-                <h2 className="sn-filter-header">검색 필터</h2>
+                <h3 className="sn-filter-header">검색 필터</h3>
                 <ul>
                     {filters}
                 </ul>

@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 /* global */
 body {
-    background-color: #F4F4F4;
+    background: #F4F4F4;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 300;
 }
@@ -110,12 +110,21 @@ div.sn_postbox, div.sn_filterbox {
 /* filter */
 div.sn-filter-box {
     float: left;
+    border-radius: 2px;
     width: 265px;
     background-color: #FFFFFF;
 }
 
+div.sn-filter-box .sn-filter-header {
+    padding: 8px;
+    margin-bottom: 0px;
+    margin: 5px 0px;
+}
+
 div.sn-filter-box .sn-filter-item {
-    margin: 5px;
+    border-style: solid none none none;
+    border-width: 1px;
+    border-color: #EEE;
 }
 
 div.sn-filter-box .sn-filter-conditions {
@@ -123,7 +132,7 @@ div.sn-filter-box .sn-filter-conditions {
 }
 
 button.sn-filter-accordion {
-    background-color: #eee;
+    background-color: #DDD;
     color: #444;
     cursor: pointer;
     width: 100%;
@@ -135,12 +144,17 @@ button.sn-filter-accordion {
     transition: 0.4s;
 }
 
-button.sn-filter-accordion.active, button.sn-filter-accordion:hover {
-    background-color: #ddd;
+button.sn-filter-accordion.active {
+    background-color: #EEE;
+
+}
+
+button.sn-filter-accordion:hover {
+    background-color: #DDD;
 }
 
 button.sn-filter-accordion:after {
-    content: '\002B';
+    content: '\2212';
     font-size: 13px;
     color: #777;
     font-weight: bold;
@@ -149,36 +163,38 @@ button.sn-filter-accordion:after {
 }
 
 button.sn-filter-accordion.active:after {
-    content: '\2212';
-}
+    content: '\002B';
 
-h3.sn-filter-header {
-    float: left;
+
 }
 
 div.sn-filter-content {
     background-color: white;
-    display: none;
+    display: block;
+    padding-bottom: 10px;
 }
+
 /* condition */
 div.sn-condition-item label {
     display: block;
 }
 
 div.sn-condition-item {
+    background: white;
     width: 100%;
+    padding: 5px 5px;
     height: 29px;
-    padding-top: 7px;
-    padding-bottom: 7px;
+}
+
+div.sn-condition-item:hover {
+    background: #EEE;
 }
 
 div.sn-condition-item input.sn-condition-checkbox {
-
     float: left;
 }
 
 div.sn-condition-item span.sn-condition-title {
-    float: left;
     margin-left: 7px;
 }
 
@@ -195,6 +211,7 @@ span.sn-expandable {
 ul {
     list-style-type: none;
     padding: 0px;
+    margin: 0px;
 }
 
 div.post_list {
