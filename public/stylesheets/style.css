@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    padding-top: 70px;
+    padding-top: 80px;
 }
 #dimmer {
     display: none;
@@ -151,15 +151,7 @@ li.sn-post div.sn-post-content {
     padding: 0px 10px;
 }
 
-li.sn-post .sn-post-title {
-    height: 30px;
-    padding-top: 5px;
-    margin: 0px;
-    display: block;
-}
-
 li.sn-post a.sn-post-name {
-    float: left;
     display: inline;
     color: #4e4e4e;
     font-weight: bold;
@@ -168,14 +160,12 @@ li.sn-post a.sn-post-name {
 }
 
 li.sn-post .sn-post-address {
-    float: left;
-    margin-left: 5px;
     color: #4e4e4e;
+    padding: 5px 0px;
     vertical-align: baseline;
-    display: inline;
+    display: block;
     font-size: 1em;
 }
-
 
 li.sn-post div.sn-post-map img {
     height: 80px;

@@ -17,9 +17,10 @@ class Post extends React.Component {
                         <a className="sn-post-address">{this.props.post.address}</a>
                     </h4>
                     <LabelList labels={this.props.post.labels} />
-                </div>
-                <div className="sn-post-map">
-                    <img src={this.props.post.mapImageUrl} alt="test"/>
+
+                    <div className="sn-post-map">
+                        <img src={this.props.post.mapImageUrl} alt="test"/>
+                    </div>
                 </div>
             </li>
         )
