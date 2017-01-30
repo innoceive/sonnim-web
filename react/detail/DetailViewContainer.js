@@ -93,37 +93,64 @@ class DetailViewContainer extends Component {
       this.setState({currRoom : room});
     }
 
+    activeTab(tab){
+      console.log(tab);
+    }
+
     render() {
       const ghData = this.state.guestHouse;
       return (
           <div className="row wrap">
-              <div className="col-md-8 col-md-offset-0">
-                  <div className="thumbnail">
-                      <img src={ghData.imageUrl} alt=""/>
-                      <div className="caption">
-                          <h3 className="guestHouseName">{ghData.name}</h3>
-                          <p className="guestHouseAddress">{ghData.address}</p>
-                          {this.CheckInTime({
-                              start: ghData.checkinStart,
-                              end: ghData.checkinEnd,
-                              out: ghData.checkout
-                          })}
+            <div className="col-md-8 col-md-offset-0">
+              <div className="thumbnail">
+                <img src={ghData.imageUrl} alt=""/>
+                <div className="caption">
+                  <div role="tabpanel">
+                    <ul className="nav nav-tabs" role="tablist">
+                      <li role="presentation" className="active"><a data-toggle="tab" href="#home">Home</a></li>
+                      <li role="presentation"><a data-toggle="tab" href="#menu11">Menu 1</a></li>
+                      <li role="presentation"><a data-toggle="tab" href="#menu22">Menu 2</a></li>
+                      <li role="presentation"><a data-toggle="tab" href="#menu33">Menu 3</a></li>
+                    </ul>
+
+                    <div className="tab-content">
+                      <div role="tabpanel" id="home" className="tab-pane fade in active">
+                        <h3 className="guestHouseName">{ghData.ghName}</h3>
+                        <p className="guestHouseAddress">{ghData.address}</p>
+                        {this.CheckInTime({
+                            start: ghData.checkinStart,
+                            end: ghData.checkinEnd,
+                            out: ghData.checkout
+                        })}
                       </div>
-                      <CreateNaverMap gps={ghData.ghGps} name={ghData.ghName}/>
+                      <div role="tabpanel" id="menu11" className="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      </div>
+                      <div role="tabpanel" id="menu22" className="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                      </div>
+                      <div role="tabpanel" id="menu33" className="tab-pane fade">
+                        <CreateNaverMap gps={ghData.ghGps} name={ghData.ghName}/>
+                      </div>
+                    </div>
                   </div>
+                </div>
               </div>
-              <div className="col-md-4">
-                <ul>
-                  {ghData.rooms.map((room) => (
-                    <li key={room.id}>
-                      <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
-                        <RoomListCard value={room} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <ModalPop value={this.state.currRoom}/>
+            </div>
+            <div className="col-md-4">
+              <ul>
+                {ghData.rooms.map((room) => (
+                  <li key={room.id}>
+                    <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
+                      <RoomListCard value={room} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <ModalPop value={this.state.currRoom}/>
           </div>
       );
     }
