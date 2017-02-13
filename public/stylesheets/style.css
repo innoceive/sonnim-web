@@ -271,3 +271,31 @@ div.sn-condition-item span.sn-condition-title {
 div.sn-condition-item span.sn-condition-count {
     float: right;
 }
+
+div.detail-modal-container{
+  position: relative;
+  z-index: 20000;
+}
+
+div.detail-modal-background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height :100%;
+    background-color: rgb(0,0,0);
+    opacity: 0.35;
+    z-index: 0;
+}
+
+div.detail-modal-content{
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    width: 480px;
+    height: 360px;
+    margin-left: -240px;
+    margin-top: -180px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
