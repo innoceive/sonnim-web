@@ -49,7 +49,6 @@ export class TabContainer extends Component{
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div id="menu22" className="tab-pane fade">
-            <div className="col-md-4">
               <ul>
                 {this.props.rooms.map((room) => (
                   <li key={room.id}>
@@ -59,10 +58,9 @@ export class TabContainer extends Component{
                   </li>
                 ))}
               </ul>
-            </div>
           </div>
           <div id="guestHouse_map" className="tab-pane fade">
-
+            {/*<CreateDaumMap/>*/}
           </div>
         </div>
       </div>

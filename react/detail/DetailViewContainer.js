@@ -93,10 +93,6 @@ class DetailViewContainer extends Component {
       this.setState({currRoom : room});
     }
 
-    activeTab(tab){
-      console.log(tab);
-    }
-
     render() {
       return (
           <div className="row wrap">
