@@ -13,6 +13,7 @@ class DetailViewContainer extends Component {
             guestHouse : {
               ghName : "",
               address: "",
+              addressLegacy: "",
               checkinStart: "",
               checkinEnd: "",
               checkout: "",
@@ -23,7 +24,10 @@ class DetailViewContainer extends Component {
               ghGps: {
                 long: 33.46,
                 lat: 126.31
-              }
+              },
+              breakfast: "",
+              wifi: [],
+              towel: [],
             },
             socialNetworks : [],
             currRoom : []
@@ -39,6 +43,7 @@ class DetailViewContainer extends Component {
                 guestHouse : {
                   ghName : ghdata.name,
                   address : ghdata.address,
+                  addressLegacy : ghdata.addressLegacy,
                   checkinStart : ghdata.checkinStart,
                   checkinEnd : ghdata.checkinEnd,
                   checkout : ghdata.checkout,
@@ -49,7 +54,10 @@ class DetailViewContainer extends Component {
                   ghGps : {
                     long : ghdata.longitude,
                     lat : ghdata.latitude
-                  }
+                  },
+                  breakfast: ghdata.breakfast,
+                  wifi: ghdata.wifi,
+                  towel: ghdata.towel
                 }
               });
 
@@ -65,30 +73,6 @@ class DetailViewContainer extends Component {
             });
     }
 
-    CheckInTime(timeObject) {
-        const time = timeObject;
-        if(typeof time.start == 'undefined'){
-            return;
-        }
-        console.log(timeObject);
-
-        var timeSlice = function(object){
-            var start = object.start.slice(0,5);
-            var end = object.end.slice(0,5);
-            var out = object.out.slice(0,5);
-            return ({startTime : start, endTime: end, outTime: out});
-        }
-
-        const times = timeSlice(timeObject);
-        return (
-            <div>
-                <p className="guestHouseCheckInTime">체크인 : {times.startTime}
-                    ~ {times.endTime}</p>
-                <p className="guestHouseCheckOutTime">체크아웃 : {times.outTime}</p>
-            </div>
-        );
-    }
-
     handleClick(room){
       this.setState({currRoom : room});
     }
@@ -100,7 +84,7 @@ class DetailViewContainer extends Component {
               <div className="thumbnail">
                 <img src={this.state.guestHouse.imageUrl} alt=""/>
                 <div className="caption">
-                  <TabContainer ghName={this.state.guestHouse.ghName} rooms={this.state.guestHouse.rooms}/>
+                  <TabContainer guestHouse={this.state.guestHouse}/>
                 </div>
               </div>
             </div>

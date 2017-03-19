@@ -33,31 +33,48 @@ export class TabContainer extends Component{
     return (
       <div role="tabpanel">
         <ul id="nav_tab_list" className="nav nav-tabs" role="tablist">
-          <li role="presentation" className="active"><a data-toggle="tab" href="#home" onClick={()=>this.activateTab(0)}>Home</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" href="#menu11" onClick={()=>this.activateTab(1)} >Menu 1</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" href="#menu22" onClick={()=>this.activateTab(2)} >Menu 2</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" href="#menu33" onClick={()=>this.activateTab(3)} >Menu 3</a></li>
+          <li role="presentation" className="active"><a data-toggle="tab" href="#home" onClick={()=>this.activateTab(0)}>소개</a></li>
+          <li role="presentation" className=""><a data-toggle="tab" href="#price" onClick={()=>this.activateTab(1)} >가격정보</a></li>
+          <li role="presentation" className=""><a data-toggle="tab" href="#map" onClick={()=>this.activateTab(2)} >방 정보</a></li>
+          <li role="presentation" className=""><a data-toggle="tab" href="#something" onClick={()=>this.activateTab(3)} >지도</a></li>
         </ul>
 
-        <div id="nav_tab_content"className="tab-content">
+        <div id="nav_tab_content" className="tab-content">
           <div id="home" className="tab-pane fade in active">
-            <h3 className="guestHouseName"></h3>
-            <p className="guestHouseAddress"></p>
+            <div className="geuesthouse-name">
+              <h3 className="guestHouseName">{this.props.guestHouse.ghName}</h3>
+            </div>
+            <div className="guesthouse-address">
+              <p className="current">{this.props.guestHouse.address}</p>
+              <p className="legacy">{this.props.guestHouse.addressLegacy}</p>
+            </div>
+            <div clasName="guesthouse-checkinout">
+              <div className="checkin">
+                <p>체크 인 : {this.props.guestHouse.checkinStart} ~ {this.props.guestHouse.checkinEnd}</p>
+              </div>
+              <div className="checkout">
+                <p>체크 아웃 : {this.props.guestHouse.checkout}</p>
+              </div>
+              <div className="phone">
+                <p>연락처 : {this.props.guestHouse.phone}</p>
+              </div>
+            </div>
           </div>
           <div id="information" className="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div className="breackfast">
+              <p>{this.props.guestHouse.breakfast}</p>
+            </div>
           </div>
           <div id="menu22" className="tab-pane fade">
-              <ul>
-                {this.props.rooms.map((room) => (
-                  <li key={room.id}>
-                    <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
-                      <RoomListCard value={room} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <ul>
+              {this.props.guestHouse.rooms.map((room) => (
+                <li key={room.id}>
+                  <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
+                    <RoomListCard value={room} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           <div id="guestHouse_map" className="tab-pane fade">
             {/*<CreateDaumMap/>*/}
