@@ -11,10 +11,12 @@
 
 'use strict';
 
-import type {Action} from './PostActions';
-
 import {Dispatcher} from 'flux';
 
-const dispatcher: Dispatcher<Action> = new Dispatcher();
+class AppDispatcher extends Dispatcher {
+    dispatch(action={}) {
+        super.dispatch(action);
+    }
+}
 
-export default dispatcher;
+export default new AppDispatcher();

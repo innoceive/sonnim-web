@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Navbar from './navigation/Navbar';
 import Dimmer from './common/Dimmer';
 import SideMenu from './navigation/SideMenu';
-import PostContainer from './main/PostContainer';
+import GuesthouseListView from './component/GuesthouseListView';
 import DetailViewContainer from './detail/DetailViewContainer';
 import SearchContainer from './home/SearchContainer';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
@@ -62,7 +62,7 @@ ReactDOM.render((
             <IndexRoute component={SearchContainer} />
             <Route path="about" component={SearchContainer} />
             <Route path="setting" component={SearchContainer} />
-            <Route path="list" component={PostContainer} />
+            <Route path="list" component={GuesthouseListView} />
             <Route path="detail/:id" component={DetailViewContainer} />
         </Route>
     </Router>
