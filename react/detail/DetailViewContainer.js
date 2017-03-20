@@ -88,8 +88,7 @@ class DetailViewContainer extends Component {
                 </div>
               </div>
             </div>
-            <ModalPop value={this.state.currRoom}/>
-            {/*<DetailModalContainer/>*/}
+            <ModalPop/>
           </div>
       );
     }

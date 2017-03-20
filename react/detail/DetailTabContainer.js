@@ -23,6 +23,19 @@ export class TabContainer extends Component{
     navTabContent[idx].className = "tab-pane in active";
   }
 
+  popModal(room){
+    var modal = document.getElementById("guesthouse-detail-modal");
+    modal.className = "modal show";
+    document.getElementById("modal-img").src = room.imageUrl;
+    document.getElementById("modal-roomtype").innerHTML = room.type;
+    document.getElementById("modal-minimum").innerHTML = room.minimum;
+    document.getElementById("modal-capacity").innerHTML = room.capacity;
+    document.getElementById("modal-gender").innerHTML = room.gender;
+
+    var dimmer = document.getElementById("modal-dimmer");
+    dimmer.className = "dimmer show";
+  }
+
   componentDidMount(){
     const navTabList = document.getElementById("nav_tab_list").children;
     const navTabContent = document.getElementById("nav_tab_content").children;
@@ -48,7 +61,7 @@ export class TabContainer extends Component{
               <p className="current">{this.props.guestHouse.address}</p>
               <p className="legacy">{this.props.guestHouse.addressLegacy}</p>
             </div>
-            <div clasName="guesthouse-checkinout">
+            <div className="guesthouse-checkinout">
               <div className="checkin">
                 <p>체크 인 : {this.props.guestHouse.checkinStart} ~ {this.props.guestHouse.checkinEnd}</p>
               </div>
@@ -69,7 +82,7 @@ export class TabContainer extends Component{
             <ul>
               {this.props.guestHouse.rooms.map((room) => (
                 <li key={room.id}>
-                  <a href="javascript:;" className="roomsModalBtn" data-toggle="modal" data-target="#myModal" onClick={() => this.handleClick(room)}>
+                  <a href="javascript:;" className="roomsModalBtn" onClick={()=>this.popModal(room)}>
                     <RoomListCard value={room} />
                   </a>
                 </li>
