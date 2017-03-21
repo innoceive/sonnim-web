@@ -4,7 +4,12 @@ import APIClient from '../common/APIClient';
 
 let GuesthouseActionCreators = {
     fetchGuesthouses() {
-        APIClient.fetchGuesthouses();
+        let _this = this;
+        APIClient.fetchGuesthouses((response) => {
+            _this.fetchGuesthousesSuccess(response);
+        }, (error) => {
+            _this.fetchGuesthousesError(error);
+        });
         AppDispatcher.dispatch({
             type: constants.FETCH_GUESTHOUSES
         });

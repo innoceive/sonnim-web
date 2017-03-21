@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-class Filter extends React.Component {
+class FilterCell extends React.Component {
     onClickAccordionButton(event) {
         var button = event.target;
 
@@ -24,7 +24,7 @@ class Filter extends React.Component {
     render(){
         var conditions = this.props.filter.conditions.map((condition, index) => {
             return (
-                <div className="sn-condition-item">
+                <div className="sn-condition-item" key={condition.id}>
                     <label htmlFor={"sn-condition-checkbox-" + index}>
                         <input className={"sn-condition-checkbox-" + index} type="checkbox" value="" onClick="" ></input>
                         <span className="sn-condition-title">{condition.title}</span>
@@ -50,4 +50,4 @@ class Filter extends React.Component {
     }
 }
 
-export default Filter;
+export default FilterCell;
