@@ -43,10 +43,10 @@ export class ModalPop extends Component{
     return (
       <div className="modal-container">
         <div className="modal fade" id="guesthouse-detail-modal" role="dialog">
-          <div className="modal-dialog modal-lg">
+          <div className="modal-dialog modal-md">
             <div className="modal-content">
               <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
+                <button type="button" className="close" data-dismiss="modal" onClick={()=>{this.closeModal();}}>&times;</button>
                 <h4 className="modal-title"></h4>
               </div>
               <div className="modal-body">

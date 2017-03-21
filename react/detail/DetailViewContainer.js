@@ -80,7 +80,7 @@ class DetailViewContainer extends Component {
     render() {
       return (
           <div className="row wrap">
-            <div className="col-md-8 col-md-offset-0">
+            <div className="col-md-8 col-md-offset-2">
               <div className="thumbnail">
                 <img src={this.state.guestHouse.imageUrl} alt=""/>
                 <div className="caption">
@@ -89,6 +89,7 @@ class DetailViewContainer extends Component {
               </div>
             </div>
             <ModalPop/>
+            <div id="modal-dimmer" className="dimmer fade"></div>
           </div>
       );
     }
