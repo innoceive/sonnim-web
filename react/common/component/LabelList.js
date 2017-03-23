@@ -12,11 +12,9 @@ class LabelList extends React.Component {
         });
 
         return (
-            <div className="label_list">
-                <ul>
-                    {labels}
-                </ul>
-            </div>
+            <ul className="label_list">
+                {labels}
+            </ul>
         )
     }
 }

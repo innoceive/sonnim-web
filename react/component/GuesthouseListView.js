@@ -14,35 +14,67 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import {Container} from 'flux/utils';
+import NavBarActionCreators from '../action/NavBarActionCreators';
 import GuesthouseStore from '../store/GuesthouseStore';
 import GuesthouseActionCreators from '../action/GuesthouseActionCreators';
-import GuesthouseCell from './GuesthouseCell';
+import GuesthouseItem from './GuesthouseItem';
 import FilterListView from './FilterListView';
 import FilterStore from '../store/FilterStore';
 
 class GuesthouseListView extends Component {
+    constructor() {
+        super(...arguments);
+        this.state = {
+            type: 'list'
+        };
+    }
 
     componentDidMount(){
         GuesthouseActionCreators.fetchGuesthouses();
+        NavBarActionCreators.updateSideMenuDetails([{
+            location: "right",
+            element: (
+                <span id="nav-menu" key="1" onClick={this.onClickChangeTypeButton.bind(this)} />
+            )
+        }]);
+    }
+
+    onClickChangeTypeButton() {
+        if(this.state.type == 'map') {
+            this.setState({
+                type: 'list'
+            });
+        } else {
+            this.setState({
+                type: 'map'
+            });
+        }
     }
 
     render(){
         var guesthouses = this.state.guesthouses.map((guesthouse) => {
-            return <GuesthouseCell key={guesthouse.id}
+            return <GuesthouseItem key={guesthouse.id}
                             guesthouse={guesthouse} />
         });
 
-        return (
-            <div>
-                <FilterListView filters={this.state.filters}/>
-                <div className="sn-post-box">    
-                    <ul className="sn-post-list">
-                        {guesthouses}
-                    </ul>
+        if(this.state.type == "map") {
+            return (
+                <div>
+                    Hello, world!
                 </div>
-            </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="sn-guesthouse-box">
+                        <ul className="sn-guesthouse-list">
+                            {guesthouses}
+                        </ul>
+                    </div>
+                </div>
 
-        );
+            );
+        }
     }
 }
 

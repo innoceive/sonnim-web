@@ -1,4 +1,7 @@
 export default {
+    // navigation
+    UPDATE_SIDEMENU_DETAILS: 'update sidemenu details',
+
     // guesthouse
     FETCH_GUESTHOUSES: 'fetch guesthouse',
     FETCH_GUESTHOUSES_SUCCESS: 'fetch guesthouse success',

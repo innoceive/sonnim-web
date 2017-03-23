@@ -7,9 +7,7 @@ class Label extends React.Component {
     render() {
         return (
             <li className="label" >
-                <div>
-                    <font color={"#"+this.props.label.color}>{this.props.label.label}</font>
-                </div>
+                <font color={"#"+this.props.label.color}>{this.props.label.label}</font>
             </li>
         )
     }

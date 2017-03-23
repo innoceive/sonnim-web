@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-class FilterCell extends React.Component {
+class FilterItem extends React.Component {
     onClickAccordionButton(event) {
         var button = event.target;
 
@@ -50,4 +50,4 @@ class FilterCell extends React.Component {
     }
 }
 
-export default FilterCell;
+export default FilterItem;
