@@ -14,7 +14,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import {Container} from 'flux/utils';
-import NavBarActionCreators from '../action/NavBarActionCreators';
+import NavigationActionCreators from '../action/NavigationActionCreators';
 import GuesthouseStore from '../store/GuesthouseStore';
 import GuesthouseActionCreators from '../action/GuesthouseActionCreators';
 import GuesthouseItem from './GuesthouseItem';
@@ -31,12 +31,13 @@ class GuesthouseListView extends Component {
 
     componentDidMount(){
         GuesthouseActionCreators.fetchGuesthouses();
-        NavBarActionCreators.updateSideMenuDetails([{
+        NavigationActionCreators.updateNavigationItems([{
             location: "right",
             element: (
                 <span id="nav-menu" key="1" onClick={this.onClickChangeTypeButton.bind(this)} />
             )
         }]);
+        NavigationActionCreators.updateNavigationTitle("list");
     }
 
     onClickChangeTypeButton() {

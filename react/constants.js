@@ -1,6 +1,7 @@
 export default {
     // navigation
-    UPDATE_SIDEMENU_DETAILS: 'update sidemenu details',
+    UPDATE_NAVIGATION_ITEMS: 'update navigation items',
+    UPDATE_NAVIGATION_TITLE: 'update navigation title',
 
     // guesthouse
     FETCH_GUESTHOUSES: 'fetch guesthouse',

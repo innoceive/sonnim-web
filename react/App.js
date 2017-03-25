@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './navigation/Navbar';
+import NavigationBar from './navigation/NavigationBar';
 import Dimmer from './common/Dimmer';
 import SideMenu from './navigation/SideMenu';
 import GuesthouseListView from './component/GuesthouseListView';
@@ -45,7 +45,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Navbar ref="navBar" showSideMenu={this.showSideMenu} />
+                <NavigationBar ref="navBar" showSideMenu={this.showSideMenu} />
                 <SideMenu ref="sideMenu" hideSideMenu={this.hideSideMenu} />
                 <div ref="container" className="container">
                     {this.props.children}
