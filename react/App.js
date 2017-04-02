@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import NavigationBar from './navigation/NavigationBar';
 import Dimmer from './common/Dimmer';
 import SideMenu from './navigation/SideMenu';
+import MainView from './component/MainView';
 import GuesthouseListView from './component/GuesthouseListView';
 import DetailViewContainer from './detail/DetailViewContainer';
-import SearchContainer from './home/SearchContainer';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 
 
@@ -59,9 +59,9 @@ class App extends React.Component {
 ReactDOM.render((
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={SearchContainer} />
-            <Route path="about" component={SearchContainer} />
-            <Route path="setting" component={SearchContainer} />
+            <IndexRoute component={MainView} />
+            <Route path="about" component={MainView} />
+            <Route path="setting" component={MainView} />
             <Route path="list" component={GuesthouseListView} />
             <Route path="detail/:id" component={DetailViewContainer} />
         </Route>

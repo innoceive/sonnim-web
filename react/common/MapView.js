@@ -12,9 +12,6 @@ window.initMap = function() {
 class MapView extends Component {
 
     render() {
-        style = {
-            height: 100%;
-        }
         return (
             <div id="map" style={style}>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxqzT1VA3zindKRO6pYcyaIP9vS1gL5dY&callback=initMap"
