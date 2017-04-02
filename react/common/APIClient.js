@@ -24,6 +24,17 @@ let APIClient = {
         }).catch((error) => {
             fail(error);
         });
+    },
+
+    fetchGuesthouse(param, success, error){
+        axios.get('http://beta.api.sonnim.kr/guesthouse/detail/'+param)
+        .then(function (response) {
+            if(response.status == 200 && response.data.mid == "GET_GUESTHOUSE_DETAIL" && response.data.result == "success") {
+                success(response.data.data);
+            }
+        }).catch(function (error) {
+            error(error);
+        });
     }
 };
 

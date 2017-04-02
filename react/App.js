@@ -4,7 +4,7 @@ import NavigationBar from './navigation/NavigationBar';
 import Dimmer from './common/Dimmer';
 import SideMenu from './navigation/SideMenu';
 import GuesthouseListView from './component/GuesthouseListView';
-import DetailViewContainer from './detail/DetailViewContainer';
+import GuesthouseDetailView from './detail/GuesthouseDetailView';
 import SearchContainer from './home/SearchContainer';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 
@@ -63,7 +63,7 @@ ReactDOM.render((
             <Route path="about" component={SearchContainer} />
             <Route path="setting" component={SearchContainer} />
             <Route path="list" component={GuesthouseListView} />
-            <Route path="detail/:id" component={DetailViewContainer} />
+            <Route path="detail/:id" component={GuesthouseDetailView} />
         </Route>
     </Router>
 ), document.getElementById('app'));

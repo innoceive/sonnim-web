@@ -27,6 +27,25 @@ let GuesthouseActionCreators = {
             type: constants.FETCH_GUESTHOUSES_ERROR,
             payload: {error}
         });
+    },
+    
+    fetchGuesthouseDetail(param){
+        let _this = this;
+        APIClient.fetchGuesthouse(param, (response)=>{_this.fetchGuesthouseDetailSuccess(response);}, (error)=>(_this.fetchGuestHouseDetailError(error)));
+    },
+
+    fetchGuesthouseDetailSuccess(response){
+        AppDispatcher.dispatch({
+            type: constants.FETCH_GUESTHOUSES_DETAIL_SUCCESS,
+            payload: {response}
+        });
+    },
+
+    fetchGuesthouseDetailError(response){
+        AppDispatcher.dispatch({
+            type: constants.FETCH_GUESTHOUSES_DETAIL_ERROR,
+            payload: {error}
+        });
     }
 };
 
