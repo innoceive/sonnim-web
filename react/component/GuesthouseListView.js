@@ -20,6 +20,7 @@ import GuesthouseActionCreators from '../action/GuesthouseActionCreators';
 import GuesthouseItem from './GuesthouseItem';
 import FilterListView from './FilterListView';
 import FilterStore from '../store/FilterStore';
+import MapView from '../common/MapView';
 
 class GuesthouseListView extends Component {
     constructor() {
@@ -60,9 +61,7 @@ class GuesthouseListView extends Component {
 
         if(this.state.type == "map") {
             return (
-                <div>
-                    Hello, world!
-                </div>
+                <MapView />
             )
         } else {
             return (
