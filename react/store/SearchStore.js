@@ -26,10 +26,10 @@ class SearchStore extends ReduceStore {
 
     reduce(state, action) {
         switch (action.type) {
-            case constants.FETCH_SEARCHABLE_REGIONS_SUCESS:
-                return state.set('regions', action.payload);
-            case constants.FETCH_SEARCH_RECOMMENDS_SUCESS:
-                return state.set('recommends', action.payload);
+            case constants.FETCH_SEARCHABLE_REGIONS_SUCCESS:
+                return state.set('regions', action.payload.response);
+            case constants.FETCH_SEARCH_RECOMMENDS_SUCCESS:
+                return state.set('recommends', action.payload.response);
             default:
                 return state;
         }
