@@ -16,5 +16,12 @@ export default {
     // guesthousedetail
     FETCH_GUESTHOUSES_DETAIL: 'fetch guesthouse detail',
     FETCH_GUESTHOUSES_DETAIL_SUCCESS: 'fetch guesthouse detail success',
-    FETCH_GUESTHOUSES_DETAIL_ERROR: 'fetch guesthouse detail error'
+    FETCH_GUESTHOUSES_DETAIL_ERROR: 'fetch guesthouse detail error',
+
+    // guesthouse detail room onclick class state
+    UPDATE_ROOM_EXPAND_STATE: 'update room expand state',
+
+    // guesthouse room image fetch
+    FETCH_ROOM_IMAGES_SUCCESS: 'fetch room images success',
+    FETCH_ROOM_IMAGES_ERROR: 'fetch room images error'
 }

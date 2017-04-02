@@ -28,10 +28,12 @@ let GuesthouseActionCreators = {
             payload: {error}
         });
     },
-    
+
     fetchGuesthouseDetail(param){
         let _this = this;
-        APIClient.fetchGuesthouse(param, (response)=>{_this.fetchGuesthouseDetailSuccess(response);}, (error)=>(_this.fetchGuestHouseDetailError(error)));
+        APIClient.fetchGuesthouse(param
+          ,(response)=>{_this.fetchGuesthouseDetailSuccess(response);}
+          ,(error)=>{_this.fetchGuestHouseDetailError(error)});
     },
 
     fetchGuesthouseDetailSuccess(response){
@@ -44,7 +46,9 @@ let GuesthouseActionCreators = {
     fetchGuesthouseDetailError(response){
         AppDispatcher.dispatch({
             type: constants.FETCH_GUESTHOUSES_DETAIL_ERROR,
-            payload: {error}
+            payload: {
+              rooms: []
+            }
         });
     }
 };

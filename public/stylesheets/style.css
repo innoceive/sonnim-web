@@ -299,3 +299,29 @@ div.sn-condition-item span.sn-condition-title {
 div.sn-condition-item span.sn-condition-count {
     float: right;
 }
+
+
+/*detail area*/
+.detail-contents div{margin: 30px 0;}
+.detail-name h3{text-align: center;}
+
+.detail-address {margin-top: 10px;}
+.detail-address p{text-align: center; font-size: 12px;}
+
+.detail-actions {width: 100%; position: relative;}
+.detail-actions .detail-actons-wrapper {text-align: center;}
+.detail-actions .detail-actons-wrapper div{margin: 0 10px; display: inline-block;}
+.detail-actions .detail-actons-wrapper img{width: 28px;height: auto;}
+
+.detail-checkinout h3,p{text-align: center;}
+.detail-inform h3,p{text-align: center;}
+
+.detail-rooms h3{text-align: center;}
+.detail-rooms .room-type{text-align: left; display: inline-block; width: 40%; margin: 0 0 0 5px;}
+.detail-rooms .room-name{text-align: center; display: inline-block; width: 15%;}
+.detail-rooms .room-price{display: inline-block; font-size: 10px; margin-left: 16px;}/*오른쪽 정렬 찾아보기*/
+.detail-rooms li{border: 2px solid #f6f6f6; margin-bottom: 5px;}
+.detail-rooms li div {margin: 5px 0;}
+.detail-rooms-room-fixed span{color: rgb(0,0,0); background-color: #026AA7}
+.detail-rooms-room-expand {display: none;}
+.detail-rooms-room-expand.show{display: block; width: 100%; height: 50px; background-color: #ffffff}
