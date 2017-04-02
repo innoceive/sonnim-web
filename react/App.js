@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './navigation/Navbar';
+import NavigationBar from './navigation/NavigationBar';
 import Dimmer from './common/Dimmer';
 import SideMenu from './navigation/SideMenu';
 import GuesthouseListView from './component/GuesthouseListView';
-import DetailViewContainer from './detail/DetailViewContainer';
+import GuesthouseDetailView from './detail/GuesthouseDetailView';
 import SearchContainer from './home/SearchContainer';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'
 
@@ -45,7 +45,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Navbar ref="navBar" showSideMenu={this.showSideMenu} />
+                <NavigationBar ref="navBar" showSideMenu={this.showSideMenu} />
                 <SideMenu ref="sideMenu" hideSideMenu={this.hideSideMenu} />
                 <div ref="container" className="container">
                     {this.props.children}
@@ -63,7 +63,7 @@ ReactDOM.render((
             <Route path="about" component={SearchContainer} />
             <Route path="setting" component={SearchContainer} />
             <Route path="list" component={GuesthouseListView} />
-            <Route path="detail/:id" component={DetailViewContainer} />
+            <Route path="detail/:id" component={GuesthouseDetailView} />
         </Route>
     </Router>
 ), document.getElementById('app'));

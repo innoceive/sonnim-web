@@ -30,5 +30,4 @@ class GuesthouseStore extends ReduceStore {
     }
 }
 
-
 export default new GuesthouseStore(AppDispatcher);

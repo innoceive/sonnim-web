@@ -14,20 +14,26 @@
 import AppDispatcher from '../AppDispatcher';
 import constants from '../constants';
 import {ReduceStore} from 'flux/utils';
+import {Map} from 'immutable';
 
-class NavBarStore extends ReduceStore {
+class NavigationStore extends ReduceStore {
     getInitialState() {
-        return [];
+        return Map({
+            items: [],
+            title: ""
+        });
     }
 
     reduce(state, action) {
         switch (action.type) {
-            case constants.UPDATE_SIDEMENU_DETAILS:
-                return action.payload.sideMenu;
+            case constants.UPDATE_NAVIGATION_ITEMS:
+                return state.set('items', action.payload.items);
+            case constants.UPDATE_NAVIGATION_TITLE:
+                return state.set('title', action.payload.title);
             default:
                 return state;
         }
     }
 }
 
-export default new NavBarStore(AppDispatcher);
+export default new NavigationStore(AppDispatcher);
