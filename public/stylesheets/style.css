@@ -324,4 +324,5 @@ div.sn-condition-item span.sn-condition-count {
 .detail-rooms li div {margin: 5px 0;}
 .detail-rooms-room-fixed span{color: rgb(0,0,0); background-color: #026AA7}
 .detail-rooms-room-expand {display: none;}
-.detail-rooms-room-expand.show{display: block; width: 100%; height: 50px; background-color: #ffffff}
+.detail-rooms-room-expand.show{display: block; width: 100%; height: auto; background-color: #ffffff}
+.detail-rooms-room-expand div img{width: 100%; height: auto;}

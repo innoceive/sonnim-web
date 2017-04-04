@@ -26,8 +26,7 @@ class GuesthouseRoomExpandCard extends Component{
     render(){
         const roomProps = this.props.room;
         const roomData = this.state.roomData;
-        let roomImages = roomData.get('roomImages').get(roomProps.id-1);
-
+		const roomImages = roomData.get("roomImageList").get(roomProps.id-1);
         return(
             <div className="detail-rooms-room" onClick={() => this.roomListOnClick()}>
                 <div className="detail-rooms-room-fixed">
@@ -35,14 +34,12 @@ class GuesthouseRoomExpandCard extends Component{
                     <span className="room-name">{roomProps.name}</span>
                     <span className="room-price">{roomProps.price}</span>
                 </div>
-                <div className={"detail-rooms-room-expand" + roomData.get('roomClassNames').get(roomProps.id - 1)}>
-                    <ul>
-                        {/*roomImages.map((item)=>
-                            <li key={item.id}>
-                                <img src={item.imageUrl} alt=""/>
-                            </li>
-                        )*/}
-                    </ul>
+                <div className={"detail-rooms-room-expand" + roomData.get('roomClassNames').get(roomProps.id-1)}>
+					{roomImages.map((item)=>
+						<div>
+							<img key={item.id} src={item.imageUrl} alt=""/>
+						</div>
+					)}
                 </div>
             </div>
         );

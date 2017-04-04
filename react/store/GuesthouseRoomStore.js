@@ -4,10 +4,13 @@ import {ReduceStore} from 'flux/utils';
 import {Map, List} from 'immutable';
 
 class GuesthouseRoomStore extends ReduceStore {
+	/*
+	* how to make dynamically state
+	*/
     getInitialState() {
         return Map({
-          roomClassNames: List(),
-          roomImages: List(),
+          roomClassNames: List(["","","","","",""]),
+          roomImageList: List([[],[],[],[],[],[]]),
         });
     }
 
@@ -16,7 +19,7 @@ class GuesthouseRoomStore extends ReduceStore {
             case constants.UPDATE_ROOM_EXPAND_STATE:
                 return state.set('roomClassNames', state.get('roomClassNames').set(action.index.index, action.payload.state));
             case constants.FETCH_ROOM_IMAGES_SUCCESS:
-                return state.set('roomImages', state.get('roomImages').set(action.index.index, action.payload.response));
+                return state.set('roomImageList', state.get('roomImageList').set(action.index.index, action.payload.response));
             default:
                 return state;
         }
